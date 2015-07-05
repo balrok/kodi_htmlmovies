@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>All Tv Shows</h2>
+<table class="sortable" data-order='[[ 0, "asc" ]]' data-page-length='250'>>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Year</th>
+			<th>Rating</th>
+			<th>Genres</th>
+			<th>Episoden</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for n in tvshows %}
+		<tr>
+			<td>{{show_image(n.thumbnail, 50)}} {{n.title}}</td>
+			<td>{{n.year}}</td>
+			<td>{{'%0.2f' % n.rating|float}}</td>
+			<td>{{n.genre|join(", ")}}</td>
+			<td>{{n.episode}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}

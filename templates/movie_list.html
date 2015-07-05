@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h2>All Movies</h2>
+<table class="sortable" data-order='[[ 0, "asc" ]]' data-page-length='250'>
+	<thead>
+		<tr>
+			<th>Title</th>
+			<th>Year</th>
+			<th>Rating</th>
+			<th>Genres</th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for n in movies %}
+		<tr>
+			<td>{{show_image(n.thumbnail, 50)}} {{n.label}}</td>
+			<td>{{n.year}}</td>
+			<td>{{'%0.2f' % n.rating|float}}</td>
+			<td>{{n.genre|join(", ")}}</td>
+		</tr>
+	{% endfor %}
+	</tbody>
+</table>
+{% endblock %}
