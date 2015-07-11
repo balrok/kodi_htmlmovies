@@ -67,7 +67,9 @@ import urllib
 import hashlib
 import shutil
 def download_image(url):
-    # TODO maybe later i want to cache them
+    # TODO we can get the image from here too:
+    # http://192.168.178.37:8080/image/image://http%253a%252f%252fimage.tmdb.org%252ft%252fp%252foriginal%252fyVkU8L6HttPQlatFdI9bata7NX0.jpg
+
     name = hashlib.sha1(url).hexdigest()+url[-4:]
     path = os.path.join("images", name)
     if not os.path.exists(os.path.join("out",path)):
